@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Registry | Sonu J S</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent-blue: #38bdf8;
+            --text-gray: #94a3b8;
+            --white: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--white);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .version-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .version-card i {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+
+        .version-card span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .version-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.3);
+            background: #24334d;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 40px 0;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Development Registry</h1>
+        <p>Select a version to preview the live build</p>
+    </div>
+
+    <div class="grid-container" id="linkGrid">
+        </div>
+
+    <div class="footer">
+        &copy; 2026 Sonu J S | Internal Portfolio Directory
+    </div>
+
+    <script>
+        const grid = document.getElementById('linkGrid');
+        const startVersion = 56;
+        const endVersion = 75;
+
+        for (let i = startVersion; i <= endVersion; i++) {
+            const card = document.createElement('a');
+            card.href = `https://sonujs.github.io/web${i}/`;
+            card.className = 'version-card';
+            card.target = '_blank'; // Opens in a new tab
+            
+            card.innerHTML = `
+                <i class="fas fa-code-branch"></i>
+                <span>Website Version ${i}</span>
+            `;
+            
+            grid.appendChild(card);
+        }
+    </script>
+
+</body>
+</html>
